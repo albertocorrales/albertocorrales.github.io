@@ -191,11 +191,17 @@ exclude:
   - node_modules
   - package*.json
 
+# jekyll-archives:
+#   enabled: [categories, tags] # [categories, tags]
+#   layouts:
+#     category: category
+#     tag: tag
+#   permalinks:
+#     tag: /tags/:name/
+#     category: /categories/:name/
 jekyll-archives:
-  enabled: [categories, tags]
+  enabled: [tags] # [categories, tags]
   layouts:
-    category: category
     tag: tag
   permalinks:
     tag: /tags/:name/
-    category: /categories/:name/
