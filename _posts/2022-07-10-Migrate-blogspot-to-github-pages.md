@@ -89,7 +89,7 @@ But you can check [this link](https://docs.github.com/en/pages/configuring-a-cus
 
 Then, you need to add a CNAME record pointing to your Github URL. In my case, I'm using Google Domains and my configuration looks like this:
 
-![domain config]({{site.baseurl}}/assets/img/2022-07-10-Migrate-blogspot-to-github-pages/3.png)
+![domain config]({{site.baseurl}}/assets/img/2022-07-10-Migrate-blogspot-to-github-pages/4.png)
 
 Finally, you have to configure your custom domain in Github. For this, go to your blog repository. Them, go to Settings -> Pages.
 
