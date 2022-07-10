@@ -5,9 +5,9 @@ date: 2022-07-10 10:00:00 UTC
 updated: 2022-07-10 10:00:00 UTC
 comments: false
 tags: [markdown, blog, tutorials, github, jekyll]
+image:
+  path: /assets/img/2022-07-10-Migrate-blogspot-to-github-pages/1.png
 ---
-
-![header](/assets/img/2022-07-10-Migrate-blogspot-to-github-pages/1.png)
 
 # Introduction
 
