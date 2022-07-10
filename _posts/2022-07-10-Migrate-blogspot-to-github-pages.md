@@ -7,7 +7,7 @@ comments: false
 tags: [markdown, blog, tutorials, github, jekyll]
 ---
 
-![header](/assets/img/2022-07-10-Migrate-blogspot-to-github-pages/1.png)
+![header]({{site.baseurl}}/assets/img/2022-07-10-Migrate-blogspot-to-github-pages/1.png)
 
 # Introduction
 
@@ -30,7 +30,7 @@ For this post, I've chosen [Beautiful Jekyll](https://beautifuljekyll.com/), bec
 
 In order to setup your blog with beautiful Jekyll, you just have to fork this repository [In order to setup your blog with beautiful Jekyll, you just have to fork this repository [https://github.com/daattali/beautiful-jekyll](https://github.com/daattali/beautiful-jekyll), rename the project to be like [https://<yourusername>.github.io](https://<yourusername>.github.io), and configure the file `_config.yml`.
 
-![jekyll example](/assets/img/2022-07-10-Migrate-blogspot-to-github-pages/2.png)
+![jekyll example]({{site.baseurl}}/assets/img/2022-07-10-Migrate-blogspot-to-github-pages/2.png)
 
 Then, you just need to add your posts as markdown files in the folder `_posts`, and they will be automatically published in your blog. You will be able to see your blog at [https://<yourusername>.github.io](https://<yourusername>.github.io).
 
@@ -89,7 +89,7 @@ But you can check [this link](https://docs.github.com/en/pages/configuring-a-cus
 
 Then, you need to add a CNAME record pointing to your Github URL. In my case, I'm using Google Domains and my configuration looks like this:
 
-![domain config](/assets/img/2022-07-10-Migrate-blogspot-to-github-pages/3.png)
+![domain config]({{site.baseurl}}/assets/img/2022-07-10-Migrate-blogspot-to-github-pages/3.png)
 
 Finally, you have to configure your custom domain in Github. For this, go to your blog repository. Them, go to Settings -> Pages.
 
