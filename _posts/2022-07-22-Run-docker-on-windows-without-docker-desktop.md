@@ -58,6 +58,16 @@ Now you can check that docker commands are pulling the images properly:
 
 ![](/assets/img/2022-07-22/3.png)
 
+When you run an image with docker rancher, it will run in localhost, so applications like FluentDocker will continue working as always. Apart from that, it also works with docker-compose and kubernetes.
+
+One feature that I like is hte fact that you can list and manage your images:
+
+![](/assets/img/2022-07-22/4.png)
+
+But there you can not see or manage your containers. For that I would recommend using [this VS Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker), which allow you manage images and containers:
+
+![](/assets/img/2022-07-22/5.png)
+
 # Conclusions
 
 In this post, we have seen different alternatives to run Docker on Windows without Docker desktop, since it is not a free tool anymore for companies.
