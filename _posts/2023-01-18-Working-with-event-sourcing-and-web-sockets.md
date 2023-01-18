@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Working with Event Sourcing, CQRS and Web Sockets on AWS
-date: 2022-01-18 10:00:00 UTC
-updated: 2022-01-18 10:00:00 UTC
+date: 2023-01-18 10:00:00 UTC
+updated: 2023-01-18 10:00:00 UTC
 comments: false
 tags: [aws, EventStoreDB, event sourcing, CQRS, WebSockets]
 image:
