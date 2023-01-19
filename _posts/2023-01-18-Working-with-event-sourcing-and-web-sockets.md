@@ -105,6 +105,34 @@ In addition, you should also bear in mind the [AWS API Gateway quotas](https://d
 
 Finally, when you unload the component of the UI that is using WebSockets, you should clear ping interval (if you are using any) and close the connection.
 
+# Testing Web Sockets
+
+In order to mock the socket in unit tests, you can use the npm package [`jest-websocket-mock`](https://github.com/romgain/jest-websocket-mock), so you can mock it and check that is it is working as expected.
+
+For integration tests, you can implement an integration test where you subscribe to a particular object with a web socket. After that, you can issue commands and check if you are getting the updates through the web socket.
+
+Finally, for end-to-end tests, we don't need to do anything different. However, if you are using Cypress, I spotted [an issue](https://github.com/cypress-io/cypress/issues/7664) with Cypress when we are working with WebSockets, as it closes the before receiving the handshake response.
+
+If you are facing this issue, you need to bypass the WebSockets endpoint in your cypress configuration, so cypress won't proxy these requests. For that, we would add this custom configuration in the file `cypress.config.ts`.
+
+```javascript
+import { defineConfig } from "cypress";
+
+export default defineConfig({
+  setupNodeEvents(on, config) {
+    on("before:browser:launch", (browser = {}, launchOptions) => {
+      launchOptions.args = launchOptions.args.map((arg) => {
+        if (arg.startsWith("--proxy-bypass-list")) {
+          return "--proxy-bypass-list=<-loopback>,wss://websockets.my-domain.com";
+        }
+        return arg;
+      });
+      return launchOptions;
+    });
+  },
+});
+```
+
 # Conclusions
 
 In this post, we have seen what are WebSockets and how we can use them to reduce the number of requests we perform to our APIs when we need to keep updated our clients.
