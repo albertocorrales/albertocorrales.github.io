@@ -6,38 +6,38 @@ updated: 2023-06-05 10:00:00 UTC
 comments: false
 tags: [Azure DevOps, CI/CD, pipelines, Nuke]
 image:
-  path: /assets/img/2023-06-05/0.PNG
+  path: /assets/img/2023-06-05/0.png
 ---
 
 # Introduction
 
 In order to implement Continuous Integration and Continuous Delivery (CI/CD), we normally build pipelines. These pipelines are automatically triggered when we build new functionality, we push it into our source code repository, and it is merged into the master branch. As part of this process, we should have some automated or manual quality checks, such us code review, vulnerabilities scan, automatic testing, etc.
 
-Once the pipeline is triggered, iot will will guide the delivery process and how the changes are being promoted across multiple environments.
+Once the pipeline is triggered, it will guide the delivery process and how the changes are being promoted across multiple environments.
 
-Regarding Azure DevOps pipelines, it is a technology that was been evolved during the last few years as CI/CD has become more relevant. In the past, we used to have a build definition and a release definition, which were manually configured by dragging and dropping tasks. You can find more information about Azure DevOps pipelines in [this link](https://learn.microsoft.com/en-us/azure/devops/pipelines/?view=azure-devops).
+Regarding Azure DevOps pipelines, it is a technology that has been evolving during the last few years as CI/CD has become more relevant. In the past, we used to have a build definition and a release definition, which were manually configured by dragging and dropping tasks. You can find more information about Azure DevOps pipelines in [this link](https://learn.microsoft.com/en-us/azure/devops/pipelines/?view=azure-devops).
 
-More recently, Azure Pipelines [introduced the YAML pipelines](https://devblogs.microsoft.com/devops/announcing-general-availability-of-azure-pipelines-yaml-cd/). This new way to define our pipelines was a very relevant environment, because it allowed us to consistently reuse our pipeline definitions and define them dynamically, as we add more services or environments as part of our continuous delivery process.
+More recently, Azure Pipelines [introduced the YAML pipelines](https://devblogs.microsoft.com/devops/announcing-general-availability-of-azure-pipelines-yaml-cd/). This new way to define our pipelines was a very relevant improvement, because it allowed us to consistently reuse our pipeline definitions and define them dynamically. This is especially useful for complex pipelines, where we have multiple services or environments as part of our continuous delivery process.
 
 In order to build YAML pipelines, we need to use an specific syntax, which allows us to define our pipeline. This language includes concepts such as stages, jobs, tasks, variables, etc. In addition, we can use [some expressions](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/expressions?view=azure-devops) in order to dynamically build conditions, loops, built-in functions, etc.
 
-# Azure DevOps YAML pipelines
+# Limitations and disadvantages of Azure DevOps YAML pipelines
 
 Azure DevOps YAML pipelines is an useful way to dynamically define our pipelines. However, in an enterprise context, where we might have very complex pipelines, YAML pipelines might have some limitations/disadvantages:
 
 ## 1) YAML pipelines are tightly coupled to Azure DevOps
 
-When we work with Azure DevOps YAML pipelines, we need to use their language. For that reason, we wanted to run our pipeline in a different provider (like GitHub Actions), we won't be able to do it.
+When we work with Azure DevOps YAML pipelines, we need to use their language. For that reason, if we want to run our pipeline in a different provider (like GitHub Actions), we won't be able to do it.
 
 ## 2) Working with YAML is tedious and error prone
 
-YAML is a human-readable data-serialization, which is commonly used for configuration files and in applications where the data is stored or transmitted. YAML has became very trendy, but it comes with some challenges, especially when it comes to complex YAML files or when we introduce programming features, such as the expressions in Azure DevOps. When we are configuring YAML, we might need to deal with issues such as indentation errors, typos or having huge files that are a mix of expressions, scripts, etc. As a result, maintain those YAML files might be a real challenge. We can find this situation not only in Azure DevOps, but in other technologies like Terraform or Docker.
+YAML is a human-readable data-serialization, which is commonly used for configuration files and in applications where the data is stored or transmitted. YAML has became very trendy, but it comes with some challenges, especially for complex YAML files or when we introduce programming features, such as the expressions in Azure DevOps. When we are configuring YAML, we might need to deal with issues such as indentation errors, typos or having huge files that are a mix of expressions, scripts, etc. As a result, maintaining those YAML files might be a real challenge. We can find this situation not only in Azure DevOps, but in other technologies like Terraform or Docker.
 
 ![](/assets/img/2023-06-05/1_1.PNG)
 
 ## 3) We cannot test our pipelines locally
 
-One of the big limitations of Azure DevOps pipelines, is the fact that we cannot test or run our pipelines locally. In order words, when we are updating or creating a new pipelines, we need to edit our YAML file, push the pipeline definition to our repository, and run the pipeline in order to test it.
+One of the biggest limitations of Azure DevOps pipelines, is the fact that we cannot test or run our pipelines locally. In order words, when we are updating or creating a new pipeline, we need to edit our YAML file, push the pipeline definition to our repository, and run the pipeline in order to test it.
 
 During this process, we will often find out that there were some issues with our pipeline definition, so we need to repeat this process over and over. As a consequence, working with YAML pipelines might slow us down.
 
@@ -138,11 +138,11 @@ And we will display the flow diagram of our build:
 
 ## Integration between Nuke and Azure DevOps
 
-If you are working with a very simple pipeline, Nuke might be all you need to build it. However, for more complex pipelines, you might need a pipeline with multiple jobs or stages running in parallel. For these scenarios, you can still work with Nuke to build the tasks of a job, but combine it with the concepts provided by Azure DevOps such as stages, jobs, etc. This will allow you to run different jobs/stages in parallel (this is [a limitation](https://github.com/nuke-build/nuke/issues/162) for nuke at the moment) or leverage the permissions model for Azure DevOps, which can be handy if you need approvals for promoting your changes to production environments.
+If you are working with a very simple pipeline, Nuke might be all you need to build it. However, for more complex pipelines, you might need a pipeline with multiple jobs or stages running in parallel. For these scenarios, you can still work with Nuke to build the tasks of a job, but combine it with the concepts provided by Azure DevOps such as stages, jobs, etc. This will allow you to run different jobs/stages in parallel (this is [a limitation](https://github.com/nuke-build/nuke/issues/162) for nuke at the moment). In addition, you can leverage the permissions model for Azure DevOps, which can be handy if you need approvals for promoting your changes to production environments.
 
 By following this approach, we would have a small part of YAML that defines the structure of your pipeline with the stages/jobs, but most of the pipeline logic would be done by Nuke projects.
 
-![](/assets/img/2023-06-05/2.PNG)
+![](/assets/img/2023-06-05/2.png)
 
 In this case, for each job, our YAML template would look similar to this:
 
@@ -160,23 +160,23 @@ jobs:
         displayName: CI
         workingDirectory: "$(Build.SourcesDirectory)/Build/MyProjectExample"
         env:
-          Paramter1: ${{ parameters.Paramter1 }}
-          Parameter2: ${{ parameters.Parameter2 }}
+          Paramter1: ${ { parameters.Paramter1 } }
+          Parameter2: ${ { parameters.Parameter2 } }
 ```
 
-On the other hand, if we want to get rid of the whole YAML, we could use [Sharpliner](https://github.com/sharpliner/sharpliner) to implement the definition of stages and jobs and combine it with Nuke. Sharpliner generates Azure DevOps pipelines in YAML from csharp. For that reason, it can be helpful to reduce the errors writing YAML, but could still hit the size limit for YAML if we overuse it.
+On the other hand, if we want to get rid of the whole YAML, we could use [Sharpliner](https://github.com/sharpliner/sharpliner) to implement the definition of stages and jobs and combine it with Nuke. Sharpliner generates Azure DevOps pipelines in YAML from C#. For that reason, it can be helpful to reduce the errors writing YAML, but we could still hit the size limit for YAML if we overuse it.
 
 ## Nuke build best practices
 
-In this section we will review some good practices and recommendations based on my experience working with Nuke build:
+In this section we will review some good practices and recommendations based on my experience working with Nuke:
 
 ### 1) Reuse targets:
 
-In order to prevent code duplication, we should always build our targets as generic targets and reuse them whenever it is possible.You can always use parameters to customize certain options in your target.
+In order to prevent code duplication, we should always build our targets as generic targets and reuse them whenever it is possible. You can always use parameters to customize certain options in your target.
 
 ### 2) Use dependencies properly:
 
-The dependencies model in Nuke can be a little complex, especially when you have multiple combinations of dependencies between your targets. As a general rule, using TryAfter and TryBefore should be the way to define our dependencies, so we don't trigger Targets that we are not scheduling in the pipeline project.
+The dependencies model in Nuke can be a little complex, especially when you have multiple combinations of dependencies between your targets. As a general rule, using TryAfter and TryBefore should be the way to define our dependencies, so we don't trigger Targets that we are not scheduled in the pipeline project.
 
 DependentFor and DependOn should be used only if there is a strict dependency and that dependency will never change or be optional. You have more info about Nuke dependencies in [this link](https://nuke.build/docs/fundamentals/targets/#dependencies).
 
@@ -192,6 +192,6 @@ When we are building targets, these targets should follow [the Single-responsibi
 
 As we have seen in this article, working with YAML to build our CI/CD pipelines can bring some challenges and limitations. In order to deal with these issues, Nuke allows us to build our pipelines as code, so our pipelines will be less error prone, more maintainable and easier to develop/debug.
 
-Using Nuke has a learning curve, but compared to other frameworks it is the most advanced one at the moment and it brings a very good developing experience, especially if you are already using csharp in your projects.
+Using Nuke has a learning curve, but compared to other frameworks it is the most advanced one at the moment and it brings a very good developing experience, especially if you are already using C# in your projects.
 
 However, depending on the complexity of your build, you might need to find a balance and use a mix of Nuke and the CI/CD engine definition. By following this approach, you would have Nuke to cover most of the logic in our pipelines, but you could also leverage features such us jobs/stages parallelization, permissions management, etc.
