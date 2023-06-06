@@ -1,8 +1,8 @@
 ---
 layout: post
 title: CI/CD pipelines-as-code with Nuke
-date: 2023-02-23 10:00:00 UTC
-updated: 2023-02-23 10:00:00 UTC
+date: 2023-06-05 10:00:00 UTC
+updated: 2023-06-05 10:00:00 UTC
 comments: false
 tags: [Azure DevOps, CI/CD, pipelines, Nuke]
 image:
