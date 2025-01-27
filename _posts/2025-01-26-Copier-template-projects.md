@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Templating tools to boost how you build consistent Microservices
+title: Build Microservices at speed light with Copier
 date: 2025-01-26 10:00:00 UTC
 updated: 2025-01-26 10:00:00 UTC
 comments: false
@@ -9,7 +9,7 @@ image:
   path: /assets/img/2025-01-26/0.jpg
 ---
 
-# Project Templating tools to boost how you build consistent Microservices
+# Build Microservices at speed light with Copier
 
 ## Introduction
 
@@ -99,6 +99,14 @@ To generate a project from this template, you would simply run:
 ```bash
 copier copy https://github.com/yourusername/nodejs-microservice-template
 ```
+
+For any projects generated with copier, you run run the following command to get latest changes:
+
+```bash
+copier update
+```
+
+When you run an update, copier will compare the version you have in your project and the latest version in the template. Then, it it will apply the diff to your project. If there are any git conflict, you will have the chance to resolve them manually, in a similar way you would do for a git merge.
 
 ## Conclusions
 
