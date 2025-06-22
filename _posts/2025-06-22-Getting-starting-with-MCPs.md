@@ -6,7 +6,7 @@ updated: 2025-06-22 10:00:00 UTC
 comments: false
 tags: [AI, LLM, AI assistant, MCP, Claude]
 image:
-  path: /assets/img/2025-06-22/0.jpg
+  path: /assets/img/2025-06-22/0.png
 ---
 
 # Getting started with MCPs, add super powers to your AI assistant
