@@ -20,13 +20,13 @@ The Model Context Protocol (MCP) is an open standard developed by Anthropic that
 ## Why MCPs are important and how they work
 Before MCP, extending AI capabilities required custom integrations for each use case. This led to fragmented solutions and limited interoperability. MCP solves these problems by providing:
 
-**Standardization**: A unified protocol that works across different AI models and tools, reducing development overhead and ensuring consistency.
+- **Standardization**: A unified protocol that works across different AI models and tools, reducing development overhead and ensuring consistency.
 
-**Security**: Built-in permission controls and sandboxing mechanisms that allow you to grant specific access rights without compromising system security.
+- **Security**: Built-in permission controls and sandboxing mechanisms that allow you to grant specific access rights without compromising system security.
 
-**Extensibility**: A plugin-like architecture that enables developers to create reusable components for common tasks like file operations, database queries, and API integrations.
+- **Extensibility**: A plugin-like architecture that enables developers to create reusable components for common tasks like file operations, database queries, and API integrations.
 
-**Local Control**: Unlike cloud-based extensions, MCPs run locally, giving you complete control over your data and tools while maintaining privacy.
+- **Local Control**: Unlike cloud-based extensions, MCPs run locally, giving you complete control over your data and tools while maintaining privacy.
 
 At its core, an MCP operates as a server that implements the protocol's specification. When an AI assistant needs to perform an action, it sends a request to the MCP server describing what it wants to do. The MCP server then validates the request, checks permissions, and executes the requested operation using the appropriate tool or resource. For example, if the AI needs to read a file, it would call the appropriate file system tool provided by the MCP, which would handle the actual file operations in a secure, controlled manner. This architecture ensures that all interactions between the AI and external systems are mediated through the MCP, maintaining security and providing a consistent interface regardless of the underlying implementation.
 
