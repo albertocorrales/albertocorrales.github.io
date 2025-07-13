@@ -9,8 +9,6 @@ image:
   path: /assets/img/2025-06-22/0.png
 ---
 
-# Getting started with MCPs, add super powers to your AI assistant
-
 ## Introduction
 
 As AI assistants become increasingly integrated into our development workflows, the need for standardized ways to extend their capabilities has become paramount. Enter the Model Context Protocol (MCP) - a game-changing specification that's revolutionizing how we connect AI models with external tools and data sources.

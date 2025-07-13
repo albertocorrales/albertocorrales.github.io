@@ -9,8 +9,6 @@ image:
   path: /assets/img/2025-07-13/0.jpg
 ---
 
-# Level Up Your AI Skills: Build a Custom MCP from Scratch
-
 ## Introduction
 
 In our [previous article](https://albertocorrales.com/posts/Getting-starting-with-MCPs/), we explored the Model Context Protocol (MCP) and learned how to use existing MCP servers to extend Claude's capabilities. Today, we'll take the next step and build our own custom MCP server from scratch. We'll create a practical email validation server that can check if an email address is valid and detect potential spam addresses using a free API.
