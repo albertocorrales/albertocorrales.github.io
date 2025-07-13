@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Building Your First Custom MCP
+title: Level Up Your AI Skills, Build a Custom MCP from Scratch
 date: 2025-07-13 10:00:00 UTC
 updated: 2025-07-13 10:00:00 UTC
 comments: false
@@ -9,7 +9,7 @@ image:
   path: /assets/img/2025-07-13/0.jpg
 ---
 
-# Building Your First Custom MCP
+# Level Up Your AI Skills: Build a Custom MCP from Scratch
 
 ## Introduction
 
